@@ -1,0 +1,36 @@
+<header class="header">
+  <div class="container">
+    <h1>Musitorika</h1>
+    <h2>
+      <small>Here you can listen and load music</small>
+    </h2>
+  </div>
+</header>
+<nav class="page-navigation">
+  <div class="container">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a routerLink="test" routerLinkActive="active">About</a></li>
+      <!--<li><a href="#">Contacts</a></li>-->
+    </ul>
+
+    <!--LOGIN FORM -->
+    <form action="#" class="login">
+      <input type="text" placeholder="Login" required>
+      <input type="password" placeholder="Password" required>
+      <input type="submit" value="Sign In">
+    </form>
+    <!--/LOGIN FORM -->
+  </div>
+</nav>
+<main>
+  <h1>
+    <router-outlet></router-outlet>
+  </h1>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>Suns of DataArt</p>
+  </div>
+</footer>
+
