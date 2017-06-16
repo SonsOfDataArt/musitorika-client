@@ -7,11 +7,18 @@ import { RouterModule } from "@angular/router";
 import { AppComponent } from './app.component';
 import { MyTestComponent } from './my-test/my-test.component';
 import { MyTestService } from "./my-test/my-test.service";
+import { SearchBoxComponent, 
+         SearchResultComponent, 
+         YouTubeSearchComponent, 
+         youTubeSearchInjectables } from './_components/index';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyTestComponent
+    MyTestComponent,
+    SearchResultComponent,
+    SearchBoxComponent,
+    YouTubeSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -19,10 +26,11 @@ import { MyTestService } from "./my-test/my-test.service";
     HttpModule,
     RouterModule.forRoot([
       { path: "", redirectTo: "test", pathMatch: "full" },
-      { path: "test", component: MyTestComponent }
+      { path: "test", component: MyTestComponent },
+      { path: "youtubesearch", component: YouTubeSearchComponent }
     ])
   ],
-  providers: [MyTestService],
+  providers: [MyTestService, youTubeSearchInjectables],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

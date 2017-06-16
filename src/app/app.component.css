@@ -1,7 +1,15 @@
 .container {
   margin: 0 auto;
-  width: 640px;
+  width: 900px;
+  /*background-image: ;*/
 }
+
+main {
+  /*background-image: url('src\pictures\main_picture.jpg');*/
+  width: 1920px;
+  height: 1080px;
+}
+
 .header {
   padding: 3px 0;
   background-color: yellowgreen;
@@ -27,7 +35,7 @@
 }
 .page-navigation li {
   float: left;
-  width: 70px;
+  width: 120px;
 }
 .page-navigation a {
   display: block;

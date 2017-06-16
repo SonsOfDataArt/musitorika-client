@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MyTestService } from "./my-test.service";
-import {error} from "selenium-webdriver";
+import { MyTestService } from './my-test.service';
+// import {error} from "selenium-webdriver";
 
 @Component({
   selector: 'app-my-test',
@@ -15,11 +15,11 @@ export class MyTestComponent implements OnInit {
   ngOnInit() {
   }
 
-  getString(){
+  getString() {
     this.result = this.mytest.getTestString();
   }
 
-  get2String(){
+  get2String() {
     this.mytest.getTest2String().then(
       result => this.result = result,
       error => this.errorMessage = error

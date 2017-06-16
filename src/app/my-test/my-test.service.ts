@@ -1,24 +1,27 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from "@angular/http";
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MyTestService {
-  url = "http://localhost:8080/hello";
+  url = 'http://localhost:8080/hello';
+  url2 = 'http://localhost:2403/hello';
   constructor(private http: Http) { }
 
   getTestString(): string {
       // console.log(this.http.get(this.url));
-    let res = this.http.get(this.url)
-      .subscribe(data => { console.log(data) });
-    return "";
+    let headers = new Headers([{'Accept': '*/*'}, {'Cache-Control': 'no-cache'}]);
+    let options = new RequestOptions({headers: headers})
+    const res = this.http.get(this.url, options)
+      .subscribe(data => { console.log(data); });
+    return '';
 
 }
 
   getTest2String(): Promise<string> {
-    let res = this.http.get(this.url)
+    const res = this.http.get(this.url)
       .toPromise()
       .then(this.extractString) // преобразовывает ответ в экземпляр Product.
       .catch(this.handleError);
@@ -27,22 +30,22 @@ export class MyTestService {
 
   private extractString(response: Response): any {
     console.log(response);
-    let res = response.text();
+    const res = response.text();
     console.log(res);
     return Observable.throw(res);
   }
 
   private  extractData(res: Response) {
-    let body = res.json();
+    const body = res.json();
     return body.data || { };
   }
 
   private handleError(error: any): any {
-    let message = "";
+    let message = '';
 
     if (error instanceof Response) {
-      let errorData = error.json().error || JSON.stringify(error.json());
-      message = `${error.status} - ${error.statusText || ''} ${errorData}`
+      const errorData = error.json().error || JSON.stringify(error.json());
+      message = `${error.status} - ${error.statusText || ''} ${errorData}`;
     } else {
       message = error.message ? error.message : error.toString();
     }
